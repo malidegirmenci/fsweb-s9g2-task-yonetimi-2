@@ -12,6 +12,7 @@ export default function TaskHookForm({ kisiler, submitFn }) {
   } = useForm({ mode: "onChange" });
 
   function mySubmit(data) {
+
     submitFn({
       ...data,
       id: nanoid(5),
@@ -99,7 +100,7 @@ export default function TaskHookForm({ kisiler, submitFn }) {
           {...register("deadline", { required: "Son teslim tarihi seçmelisiniz" })}
           id="deadline"
           name="deadline"
-          type="date"
+          type="datetime-local"
           min="2023-01-25"
         />
         {errors.deadline && <p className="input-error">{errors.deadline.message}</p>}
